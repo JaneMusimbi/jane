@@ -4,16 +4,16 @@ from datetime import datetime
 class Customer(models.Model):
     firstname=models.CharField(max_length=15,null=True)
     lastname=models.CharField(max_length=15,null=True)
-    address=models.TextField
-    email=models.EmailField
+    customer_address=models.CharField(max_length=72,null=True)
+    email=models.EmailField()
     GENDER_CHOICES=(
         ('M','Male'),
         ('F','Female'),
     )
     gender=models.CharField(max_length=1,choices=GENDER_CHOICES,null=True)
     phonenumber=models.CharField(max_length=10,null=True)
-    age=models.PositiveSmallIntegerField
-    profile_picture=models.ImageField
+    age=models.PositiveSmallIntegerField()
+    # profile_picture=models.ImageField()
 
    
 class Wallet(models.Model):    
@@ -28,10 +28,10 @@ class Wallet(models.Model):
 class Receipt(models.Model):
     receiptdate=models.DateTimeField()
     # transaction=models.ForeignKey(on_delete=models.CASCADE,to=Transaction)
-    number=models.IntegerField
+    number=models.IntegerField()
     file=models.FileField(max_length=15)
     receipttype=models.CharField(max_length=30,null=True)
-    amount=models.BigIntegerField  
+    amount=models.BigIntegerField() 
 
 
 class Account(models.Model):

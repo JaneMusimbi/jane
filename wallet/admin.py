@@ -4,8 +4,8 @@ from .models import Account, Card, Customer, Loan, Notification, Receipt, Reward
 
 # Register your models here.
 class CustomerAdmin(admin.ModelAdmin):
-    list_display =("firstname","lastname","address","email",)
-    search_fields = ("first_name", "last_name")
+    list_display =("firstname","lastname","customer_address","email",)
+    search_fields = ("firstname", "lastname")
 admin.site.register(Customer,CustomerAdmin)
 
 class WalletAdmin(admin.ModelAdmin):
@@ -24,7 +24,7 @@ class TransactionAdmin(admin.ModelAdmin):
 admin .site.register(Transaction,TransactionAdmin)
 
 class CardAdmin(admin.ModelAdmin):
-    list_display =("card_number","user_name","date_issue","card_type")
+    list_display =("card_number","user_name","date_issue","card_type","wallet","account")
     search_fields = ("user_name","date_issue")  
 admin.site.register(Card,CardAdmin)
 
@@ -36,19 +36,19 @@ admin.site.register(Thirdparty,ThirdpartyAdmin)
 class NotificationAdmin(admin.ModelAdmin):
     list_display =("id","name","date_and_time","status",)
     search_fields = ("id", "name","date_and_time",)  
-admin.site.register(Notification) 
+admin.site.register(Notification, NotificationAdmin) 
 
 class ReceiptAdmin(admin.ModelAdmin):
-    list_display =("receiptdate","receipttype")
-    search_fields = (" receiptdate", "receipttype")  
+    list_display =("receiptdate","receipttype","number","amount",)
+    search_fields = (" receiptdate", "receipttype","number","amount",)  
 admin.site.register(Receipt,ReceiptAdmin) 
 
 class LoanAdmin(admin.ModelAdmin):
     list_display =("loan_number","loan_type","amount","date_and_time",)
     search_fields = ("loan_number", "loan_type","amount",)  
-admin.site.register(Loan) 
+admin.site.register(Loan,LoanAdmin) 
 
 class RewardAdmin(admin.ModelAdmin):
     list_display =("transaction","customer_id","description","gender",)
     search_fields = ("transaction", "customer_id","description",)  
-admin.site.register(Reward) 
+admin.site.register(Reward, RewardAdmin) 
