@@ -1,3 +1,4 @@
+from distutils.command.upload import upload
 from django.db import models
 from datetime import datetime
 # Create your models here.
@@ -13,7 +14,7 @@ class Customer(models.Model):
     gender=models.CharField(max_length=1,choices=GENDER_CHOICES,null=True)
     phonenumber=models.CharField(max_length=10,null=True)
     age=models.PositiveSmallIntegerField()
-    # profile_picture=models.ImageField()
+    profile_picture=models.ImageField(null=True,upload_to="images/")
 
    
 class Wallet(models.Model):    

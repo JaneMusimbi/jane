@@ -13,14 +13,17 @@
             <th>First name</th>
             <th>Age</th>
             <th>Email</th>
+            <th>Profile</th>>
         </tr>
         {% for customer in customers %}
         <tr>
             <td>{{customer.first_name}}</td>
             <td>{{customer.age}}</td>
             <td>{{customer.email}}</td>
+            <td>customer.profile</td>
         </tr>
         {% endfor %}
+        <a href="{%url 'customer_profile id=customer.id'}">view profile</a>
         </table>
         <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
